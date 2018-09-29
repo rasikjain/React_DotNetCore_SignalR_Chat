@@ -14,15 +14,18 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var Users = /** @class */ (function (_super) {
-    __extends(Users, _super);
-    function Users() {
+var NavMenu_1 = require("./NavMenu");
+var Layout = /** @class */ (function (_super) {
+    __extends(Layout, _super);
+    function Layout() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Users.prototype.render = function () {
-        return React.createElement("div", null, "I am users");
+    Layout.prototype.render = function () {
+        return React.createElement("div", null,
+            React.createElement(NavMenu_1.NavMenu, null),
+            React.createElement("div", { className: 'container-fluid' }, this.props.children));
     };
-    return Users;
+    return Layout;
 }(React.Component));
-exports.Users = Users;
-//# sourceMappingURL=Users.js.map
+exports.Layout = Layout;
+//# sourceMappingURL=Layout.js.map

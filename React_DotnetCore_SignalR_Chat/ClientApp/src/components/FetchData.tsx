@@ -2,7 +2,7 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 
 
-export class FetchData extends React.Component<RouteComponentProps<{}>, null> {
+export class FetchData extends React.Component<RouteComponentProps<{}>, {}> {
 
     public render() {
 

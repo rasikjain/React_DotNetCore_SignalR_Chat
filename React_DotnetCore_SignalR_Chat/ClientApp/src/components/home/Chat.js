@@ -19,6 +19,9 @@ var Chat = /** @class */ (function (_super) {
     function Chat() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    Chat.prototype.render = function () {
+        return React.createElement("div", null, "I am Chat");
+    };
     return Chat;
 }(React.Component));
 exports.Chat = Chat;
