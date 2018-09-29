@@ -16,11 +16,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var Users = /** @class */ (function (_super) {
     __extends(Users, _super);
-    function Users() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function Users(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            users: [
+                { id: 1, name: 'juergen' },
+                { id: 3, name: 'marion' },
+                { id: 2, name: 'peter' },
+                { id: 4, name: 'mo' }
+            ]
+        };
+        return _this;
     }
     Users.prototype.render = function () {
-        return React.createElement("div", null, "I am users");
+        return React.createElement("div", { className: 'panel panel-default' },
+            React.createElement("div", { className: 'panel-body' },
+                React.createElement("h3", null, "Users online:"),
+                React.createElement("ul", { className: 'chat-users' }, this.state.users.map(function (user) {
+                    return React.createElement("li", { key: user.id }, user.name);
+                }))));
     };
     return Users;
 }(React.Component));
