@@ -51,6 +51,11 @@ namespace React_DotnetCore_SignalR_Chat
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
+
+                routes.MapSpaFallbackRoute(
+                    name: "spa-fallback",
+                    defaults: new { controller = "Home", action = "Index" });
+
             });
 
             app.UseSpa(spa =>
