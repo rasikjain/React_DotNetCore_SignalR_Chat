@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using React_DotnetCore_SignalR_Chat.Hubs;
+using React_DotnetCore_SignalR_Chat.Services;
+using React_DotnetCore_SignalR_Chat.User;
 
 namespace React_DotnetCore_SignalR_Chat
 {
@@ -22,6 +25,10 @@ namespace React_DotnetCore_SignalR_Chat
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddSignalR();
+            services.AddSingleton<IChatService, ChatService>();
+            services.AddSingleton<IChatMessageRepository, ChatMessageRepository>();
+            services.AddSingleton<IUserTracker, UserTracker>();
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -56,6 +63,11 @@ namespace React_DotnetCore_SignalR_Chat
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
 
+            });
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("/chat");
             });
 
             app.UseSpa(spa =>

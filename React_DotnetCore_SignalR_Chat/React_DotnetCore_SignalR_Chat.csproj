@@ -10,8 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.SignalR" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,12 +26,22 @@
     <None Remove="ClientApp\src\components\home\Chat.tsx" />
     <None Remove="ClientApp\src\components\home\Users.tsx" />
     <None Remove="ClientApp\src\routes.tsx" />
+    <None Remove="ClientApp\src\services\ChatService.tsx" />
+    <None Remove="ClientApp\src\services\Models\ChatMessage.tsx" />
+    <None Remove="ClientApp\src\services\Models\User.tsx" />
+    <None Remove="ClientApp\src\services\UsersService.tsx" />
+    <None Remove="ClientApp\src\services\WebsocketService.tsx" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\components\home\Users.tsx" />
     <TypeScriptCompile Include="ClientApp\src\components\home\Chat.tsx" />
     <TypeScriptCompile Include="ClientApp\src\routes.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\services\ChatService.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\services\Models\ChatMessage.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\services\Models\User.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\services\UsersService.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\services\WebsocketService.tsx" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
