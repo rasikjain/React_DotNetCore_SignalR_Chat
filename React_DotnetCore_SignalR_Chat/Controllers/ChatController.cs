@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using React_DotnetCore_SignalR_Chat.Models;
 using React_DotnetCore_SignalR_Chat.Services;
@@ -9,7 +10,7 @@ using React_DotnetCore_SignalR_Chat.User;
 namespace React_DotnetCore_SignalR_Chat.Controllers
 {
     [Route("api/[controller]")]
-    //    [Authorize]
+    [Authorize]
     public class ChatController : Controller
     {
         private readonly IChatService _chatService;

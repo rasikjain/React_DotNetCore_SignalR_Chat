@@ -19,6 +19,8 @@ var ChatService = /** @class */ (function () {
             .then(function (data) {
             fetchInitialMessagesCallback(data);
         });
+        //fetch('api/Chat/InitialMessages')
+        //    .then(response => console.log(response.json()));
     };
     return ChatService;
 }());

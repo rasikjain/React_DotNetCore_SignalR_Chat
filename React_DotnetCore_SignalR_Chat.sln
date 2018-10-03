@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "React_DotnetCore_SignalR_Chat", "React_DotnetCore_SignalR_Chat\React_DotnetCore_SignalR_Chat.csproj", "{EEE6713B-0F72-4630-8E38-6B5D03A3C200}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "React_DotnetCore_SignalR_Chat", "React_DotnetCore_SignalR_Chat\React_DotnetCore_SignalR_Chat.csproj", "{EEE6713B-0F72-4630-8E38-6B5D03A3C200}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactChatDemoIdentities", "ReactChatDemoIdentities\ReactChatDemoIdentities.csproj", "{1545E62D-EEEB-4CB4-9952-C167F65B317C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{EEE6713B-0F72-4630-8E38-6B5D03A3C200}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEE6713B-0F72-4630-8E38-6B5D03A3C200}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEE6713B-0F72-4630-8E38-6B5D03A3C200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1545E62D-EEEB-4CB4-9952-C167F65B317C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1545E62D-EEEB-4CB4-9952-C167F65B317C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1545E62D-EEEB-4CB4-9952-C167F65B317C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1545E62D-EEEB-4CB4-9952-C167F65B317C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

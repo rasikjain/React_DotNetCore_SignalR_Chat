@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using React_DotnetCore_SignalR_Chat.Hubs;
 using React_DotnetCore_SignalR_Chat.Services;
 using React_DotnetCore_SignalR_Chat.User;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace React_DotnetCore_SignalR_Chat
 {
@@ -26,10 +27,32 @@ namespace React_DotnetCore_SignalR_Chat
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSignalR();
-            services.AddSingleton<IChatService, ChatService>();
-            services.AddSingleton<IChatMessageRepository, ChatMessageRepository>();
+            services.AddTransient<IChatService, ChatService>();
+            services.AddTransient<IChatMessageRepository, ChatMessageRepository>();
             services.AddSingleton<IUserTracker, UserTracker>();
             // In production, the React files will be served from this directory
+
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc";
+            })
+               .AddCookie("Cookies")
+               .AddOpenIdConnect("oidc", options =>
+               {
+                   options.SignInScheme = "Cookies";
+
+                   options.Authority = "http://localhost:5002";
+                   options.RequireHttpsMetadata = false;
+
+                   options.TokenValidationParameters.NameClaimType = "name";
+
+                   options.ClientId = "reactchat";
+                   options.SaveTokens = true;
+               });
+
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
@@ -48,11 +71,11 @@ namespace React_DotnetCore_SignalR_Chat
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
-
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
